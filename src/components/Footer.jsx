@@ -11,43 +11,38 @@ const Footer = () => {
   const socialLinks = [
     { 
       icon: Twitter, 
-      href: 'https://twitter.com/mahilo', 
+      href: 'https://twitter.com/wjayesh', 
       color: 'text-blue-400' 
     },
     { 
       icon: Github, 
-      href: 'https://github.com/mahilo', 
-      color: 'text-gray-800' 
+      href: 'https://github.com/wjayesh/mahilo', 
+      color: 'text-gray-200' 
     },
     { 
       icon: Linkedin, 
-      href: 'https://linkedin.com/company/mahilo', 
+      href: 'https://linkedin.com/in/wjayesh', 
       color: 'text-blue-600' 
     },
     { 
       icon: Mail, 
-      href: 'mailto:contact@mahilo.ai', 
-      color: 'text-red-500' 
+      href: 'mailto:wjayesh@outlook.com', 
+      color: 'text-red-400' 
     }
   ];
 
   const footerNavigation = {
-    product: [
+    project: [
       { name: 'Features', href: '#features' },
       { name: 'Use Cases', href: '#use-cases' },
-      { name: 'Pricing', href: '/pricing' },
-      { name: 'Documentation', href: '/docs' }
+      { name: 'Documentation', href: 'https://github.com/wjayesh/mahilo#readme' },
     ],
-    company: [
-      { name: 'About', href: '/about' },
-      { name: 'Careers', href: '/careers' },
-      { name: 'Press', href: '/press' },
-      { name: 'Contact', href: '/contact' }
+    resources: [
+      { name: 'Examples', href: 'https://github.com/wjayesh/mahilo/tree/main/examples' },
+      { name: 'Templates', href: 'https://github.com/wjayesh/mahilo/tree/main/mahilo/templates' }
     ],
-    legal: [
-      { name: 'Privacy', href: '/privacy' },
-      { name: 'Terms', href: '/terms' },
-      { name: 'Cookies', href: '/cookies' }
+    creator: [
+      { name: 'wjayesh.com', href: 'https://wjayesh.com' }
     ]
   };
 
@@ -106,6 +101,8 @@ const Footer = () => {
                       <a 
                         href={link.href} 
                         className="text-gray-400 hover:text-white transition-colors"
+                        target={link.href.startsWith('http') ? '_blank' : undefined}
+                        rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                       >
                         {link.name}
                       </a>
