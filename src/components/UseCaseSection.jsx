@@ -78,30 +78,35 @@ const USE_CASES = [
   }
 ];
 
+const IconComponent = ({ icon: Icon, className, size }) => {
+  return <Icon className={className} size={size} />;
+};
+
 const UseCaseSection = () => {
   const [activeCase, setActiveCase] = useState(USE_CASES[0]);
 
   return (
-    <div id="use-cases" className="bg-gray-50 py-16">
+    <div id="use-cases" className="bg-gray-50 py-8 md:py-16">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3 md:mb-4">
             Real-World Applications
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-2">
             Discover the diverse range of multi-agents apps that mahilo can help you create
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-8">
-          {/* Sidebar Navigation */}
-          <div className="md:w-1/3 space-y-4">
+        <div className="flex flex-col gap-6 md:flex-row md:gap-8">
+          {/* Sidebar Navigation - Horizontal scroll on mobile */}
+          <div className="md:w-1/3 flex md:flex-col gap-4 overflow-x-auto md:overflow-x-visible pb-4 md:pb-0 px-2 md:px-0">
             {USE_CASES.map((useCase) => (
               <motion.div
                 key={useCase.id}
                 onClick={() => setActiveCase(useCase)}
                 className={`
-                  cursor-pointer p-6 rounded-xl
+                  cursor-pointer p-4 md:p-6 rounded-xl
+                  flex-shrink-0 w-[280px] md:w-auto
                   flex flex-col gap-2
                   ${activeCase.id === useCase.id 
                     ? `bg-white shadow-lg border-2 ${useCase.colorClasses.border}` 
@@ -113,15 +118,16 @@ const UseCaseSection = () => {
                 whileTap={{ scale: 0.98 }}
               >
                 <div className="flex items-center gap-3">
-                  <useCase.icon 
+                  <IconComponent 
+                    icon={useCase.icon}
                     className={useCase.colorClasses.icon}
-                    size={28}
+                    size={24}
                   />
                   <div>
-                    <h3 className="font-semibold text-gray-900 text-lg">
+                    <h3 className="font-semibold text-gray-900 text-base md:text-lg">
                       {useCase.title}
                     </h3>
-                    <p className="text-sm text-gray-500">
+                    <p className="text-xs md:text-sm text-gray-500">
                       {useCase.subtitle}
                     </p>
                   </div>
@@ -136,34 +142,37 @@ const UseCaseSection = () => {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:w-2/3 bg-white rounded-xl shadow-lg p-8"
+            className="md:w-2/3 bg-white rounded-xl shadow-lg p-4 md:p-8"
           >
-            <div className="flex items-center gap-4 mb-6">
-              <activeCase.icon 
+            <div className="flex items-center gap-3 md:gap-4 mb-4 md:mb-6">
+              <IconComponent 
+                icon={activeCase.icon}
                 className={activeCase.colorClasses.icon}
-                size={36} 
+                size={32}
               />
               <div>
-                <h3 className="text-2xl font-bold text-gray-800">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-800">
                   {activeCase.title}
                 </h3>
-                <p className="text-gray-500">{activeCase.subtitle}</p>
+                <p className="text-sm md:text-base text-gray-500">
+                  {activeCase.subtitle}
+                </p>
               </div>
             </div>
 
-            <p className="text-gray-600 text-lg mb-8">
+            <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8">
               {activeCase.description}
             </p>
 
-            <div className="mb-8">
-              <h4 className="text-lg font-semibold mb-4 text-gray-700">
+            <div className="mb-6 md:mb-8">
+              <h4 className="text-base md:text-lg font-semibold mb-3 md:mb-4 text-gray-700">
                 Key Mahilo Features Demonstrated
               </h4>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              <ul className="grid grid-cols-1 gap-2 md:gap-3">
                 {activeCase.features.map((feature, index) => (
                   <li 
                     key={index} 
-                    className="flex items-center gap-2 text-gray-600"
+                    className="flex items-center gap-2 text-sm md:text-base text-gray-600"
                   >
                     <ArrowRight className={activeCase.colorClasses.arrow} size={16} />
                     {feature}
@@ -172,12 +181,12 @@ const UseCaseSection = () => {
               </ul>
             </div>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-3 md:gap-4">
               <a 
                 href={activeCase.demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+                className="flex items-center gap-2 px-3 md:px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-sm md:text-base"
               >
                 <PlayCircle size={20} />
                 Watch Demo
@@ -186,7 +195,7 @@ const UseCaseSection = () => {
                 href={activeCase.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+                className="flex items-center gap-2 px-3 md:px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-sm md:text-base"
               >
                 <Github size={20} />
                 View on GitHub
@@ -196,7 +205,7 @@ const UseCaseSection = () => {
                   href={activeCase.websiteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+                  className="flex items-center gap-2 px-3 md:px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors text-sm md:text-base"
                 >
                   <Globe size={20} />
                   Visit Website
