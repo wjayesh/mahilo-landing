@@ -121,59 +121,59 @@ const FeatureGrid = () => {
       ]
     },
     {
+        title: 'Human-Centric Design',
+        description: 'Keep humans in control while AI agents handle complex interactions seamlessly.',
+        icon: 'User2',
+        color: 'teal',
+        details: [
+          'Perfect balance of automation and oversight',
+          'Enhanced team efficiency',
+          'Intuitive human-AI interaction patterns'
+        ]
+    },
+    {
+        title: 'Voice-Enabled Intelligence',
+        description: 'Natural voice interactions powered by OpenAI\'s cutting-edge Realtime API.',
+        icon: 'AudioLines',
+        color: 'sky', 
+        details: [
+          'Cutting-edge voice interaction capabilities',
+          'Natural conversations with AI agents',
+          'Enhanced accessibility through voice commands'
+        ]
+    },
+    {
       title: 'Intelligent Collaboration',
-      description: 'AI agents that autonomously share context and information while maintaining perfect coordination.',
+      description: 'AI agents that autonomously share context and information when needed.',
       icon: 'Brain',
       color: 'lime',
       details: [
         'Smart context sharing between agents',
         'Real-time information querying across users',
-        'Intelligent context windowing to prevent overload'
+        'Context windowing to prevent overload'
       ]
     },
     {
-      title: 'Voice-Enabled Intelligence',
-      description: 'Natural voice interactions powered by OpenAI\'s cutting-edge Realtime API.',
-      icon: 'AudioLines',
-      color: 'sky', 
-      details: [
-        'Cutting-edge voice interaction capabilities',
-        'Natural conversations with AI agents',
-        'Enhanced accessibility through voice commands'
-      ]
+        title: 'Flexible Integration',
+        description: 'Adapt and extend the framework for any collaborative AI use case.',
+        icon: 'Code',
+        color: 'indigo',
+        details: [
+          'Simple installation process',
+          'Extensive documentation and templates',
+          'Support for custom agent types'
+        ]
     },
     {
-      title: 'Enterprise-Ready Architecture',
-      description: 'Built for scale with WebSocket technology and robust security controls.',
+      title: 'Advanced Agent Controls',
+      description: 'Built with advanced agent communication patterns in mind.',
       icon: 'Shield',
       color: 'orange',
       details: [
         'Session management for persistence',
-        'Flexible communication patterns',
+        'Flexible communication patterns like peer-to-peer and hierarchical',
       ]
     },
-    {
-      title: 'Human-Centric Design',
-      description: 'Keep humans in control while AI agents handle complex interactions seamlessly.',
-      icon: 'User2',
-      color: 'teal',
-      details: [
-        'Perfect balance of automation and oversight',
-        'Enhanced team efficiency',
-        'Intuitive human-AI interaction patterns'
-      ]
-    },
-    {
-      title: 'Flexible Integration',
-      description: 'Adapt and extend the framework for any collaborative AI use case.',
-      icon: 'Code',
-      color: 'indigo',
-      details: [
-        'Simple installation process',
-        'Extensive documentation and templates',
-        'Support for custom agent types'
-      ]
-    }
   ];
 
   return (
@@ -182,10 +182,10 @@ const FeatureGrid = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
-              Enterprise-Grade Multi-Agent Framework
+              A Multi-Agent Human-in-the-Loop Framework
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Mahilo combines cutting-edge AI capabilities with enterprise-ready features to enable true multi-user, multi-agent collaboration.
+              Built on the principles of extensibility, intelligent context sharing, and human oversight, mahilo lets you build sophisticated multi-agent AI apps with ease.
             </p>
           </div>
           
