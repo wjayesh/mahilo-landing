@@ -6,7 +6,10 @@ import {
   Zap, 
   Shield, 
   Cpu, 
-  CodeIcon 
+  CodeIcon,
+  User,
+  User2,
+  AudioLines
 } from 'lucide-react';
 
 // Predefined icon map for easy reference
@@ -16,7 +19,10 @@ const ICONS = {
   Zap: Zap,
   Shield: Shield,
   Cpu: Cpu,
-  Code: CodeIcon
+  User: User,
+  User2: User2,
+  Code: CodeIcon,
+  AudioLines: AudioLines
 };
 
 const FeatureCard = ({ 
@@ -29,13 +35,33 @@ const FeatureCard = ({
   const [isExpanded, setIsExpanded] = useState(false);
   const IconComponent = ICONS[icon] || Brain;
 
+  // Create a color mapping object
+  const colorClasses = {
+    purple: 'text-purple-600 hover:border-purple-300',
+    blue: 'text-blue-600 hover:border-blue-300',
+    yellow: 'text-yellow-600 hover:border-yellow-300',
+    red: 'text-red-600 hover:border-red-300',
+    fuchsia: 'text-fuchsia-600 hover:border-fuchsia-300',
+    indigo: 'text-indigo-600 hover:border-indigo-300',
+    green: 'text-green-600 hover:border-green-300',
+    orange: 'text-orange-600 hover:border-orange-300',
+    pink: 'text-pink-600 hover:border-pink-300',
+    teal: 'text-teal-600 hover:border-teal-300',
+    lime: 'text-lime-600 hover:border-lime-300',
+    emerald: 'text-emerald-600 hover:border-emerald-300',
+    cyan: 'text-cyan-600 hover:border-cyan-300',
+    sky: 'text-sky-600 hover:border-sky-300',
+    violet: 'text-violet-600 hover:border-violet-300',
+    // Add more colors as needed
+  };
+
   return (
     <motion.div 
       className={`
         relative overflow-hidden rounded-xl 
         bg-white shadow-lg p-6 
         border-2 border-transparent 
-        hover:border-${color}-300 
+        ${colorClasses[color] || colorClasses.indigo}
         transition-all duration-300 
         transform hover:-translate-y-2
       `}
@@ -44,9 +70,9 @@ const FeatureCard = ({
       onHoverEnd={() => setIsExpanded(false)}
     >
       {/* Top Section with Icon */}
-      <div className="flex items-center mb-4">
+      <div className="flex items-center mb-4 gap-3">
         <IconComponent 
-          className={`text-${color}-600 mr-4`} 
+          className={colorClasses[color]?.split(' ')[0] || 'text-indigo-600'} 
           size={40} 
         />
         <h3 className="text-xl font-bold text-gray-800">
@@ -82,72 +108,70 @@ const FeatureCard = ({
 };
 
 const FeatureGrid = () => {
-  // Default features - easily replaceable
   const features = [
     {
-      title: 'Multi-Agent Collaboration',
-      description: 'Intelligent agents working together to solve complex problems.',
+      title: 'True Multi-Player AI',
+      description: 'Enable simultaneous interactions between multiple users and AI agents in a shared intelligent space.',
       icon: 'Network',
       color: 'purple',
       details: [
-        'Dynamic task allocation',
-        'Real-time knowledge sharing',
-        'Adaptive problem-solving strategies'
+        'Multiple users interact with AI agents simultaneously',
+        'Sophisticated shared context management',
+        'Configurable communication patterns between agents'
       ]
     },
     {
-      title: 'Advanced Learning Capabilities',
-      description: 'Continuous improvement through collective intelligence.',
+      title: 'Intelligent Collaboration',
+      description: 'AI agents that autonomously share context and information while maintaining perfect coordination.',
       icon: 'Brain',
-      color: 'blue',
+      color: 'lime',
       details: [
-        'Meta-learning techniques',
-        'Cross-agent knowledge transfer',
-        'Adaptive learning algorithms'
+        'Smart context sharing between agents',
+        'Real-time information querying across users',
+        'Intelligent context windowing to prevent overload'
       ]
     },
     {
-      title: 'Scalable Architecture',
-      description: 'Flexible framework that grows with your needs.',
-      icon: 'Cpu',
-      color: 'green',
+      title: 'Voice-Enabled Intelligence',
+      description: 'Natural voice interactions powered by OpenAI\'s cutting-edge Realtime API.',
+      icon: 'AudioLines',
+      color: 'sky', 
       details: [
-        'Horizontal agent scaling',
-        'Cloud-native design',
-        'Microservice architecture'
+        'Cutting-edge voice interaction capabilities',
+        'Natural conversations with AI agents',
+        'Enhanced accessibility through voice commands'
       ]
     },
     {
-      title: 'Secure Interactions',
-      description: 'Robust security and privacy at the core of our design.',
+      title: 'Enterprise-Ready Architecture',
+      description: 'Built for scale with WebSocket technology and robust security controls.',
       icon: 'Shield',
-      color: 'red',
+      color: 'orange',
       details: [
-        'End-to-end encryption',
-        'Granular access controls',
-        'Compliance-ready infrastructure'
+        'Session management for persistence',
+        'Flexible communication patterns',
       ]
     },
     {
-      title: 'Rapid Prototyping',
-      description: 'Build and deploy agent networks in minutes.',
-      icon: 'Zap',
-      color: 'yellow',
+      title: 'Human-Centric Design',
+      description: 'Keep humans in control while AI agents handle complex interactions seamlessly.',
+      icon: 'User2',
+      color: 'teal',
       details: [
-        'No-code agent configuration',
-        'Pre-built agent templates',
-        'Instant deployment tools'
+        'Perfect balance of automation and oversight',
+        'Enhanced team efficiency',
+        'Intuitive human-AI interaction patterns'
       ]
     },
     {
-      title: 'Extensible Framework',
-      description: 'Integrate with existing tools and technologies.',
+      title: 'Flexible Integration',
+      description: 'Adapt and extend the framework for any collaborative AI use case.',
       icon: 'Code',
       color: 'indigo',
       details: [
-        'Plugin-based architecture',
-        'REST and GraphQL APIs',
-        'Multi-language support'
+        'Simple installation process',
+        'Extensive documentation and templates',
+        'Support for custom agent types'
       ]
     }
   ];
@@ -158,10 +182,10 @@ const FeatureGrid = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
-              Powerful Features, Infinite Possibilities
+              Enterprise-Grade Multi-Agent Framework
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Mahilo provides a comprehensive suite of features designed to revolutionize multi-agent AI development.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Mahilo combines cutting-edge AI capabilities with enterprise-ready features to enable true multi-user, multi-agent collaboration.
             </p>
           </div>
           
