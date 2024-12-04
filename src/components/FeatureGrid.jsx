@@ -6,7 +6,7 @@ import {
   Zap, 
   Shield, 
   Cpu, 
-  CodeIcon,
+  Code as CodeIcon,
   User,
   User2,
   AudioLines
@@ -127,8 +127,8 @@ const FeatureGrid = () => {
         color: 'teal',
         details: [
           'Perfect balance of automation and oversight',
-          'Enhanced team efficiency',
-          'Intuitive human-AI interaction patterns'
+          'Humans are only contacted when needed',
+          'Humans can choose todictate AI decisions'
         ]
     },
     {

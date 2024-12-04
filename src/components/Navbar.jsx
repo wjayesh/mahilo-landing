@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 const Navbar = () => {
   const [starCount, setStarCount] = useState(null);
@@ -29,7 +30,7 @@ const Navbar = () => {
       <div className="container mx-auto px-0 py-3">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <a href="/" className="flex items-center space-x-3">
+            <Link href="/" className="flex items-center space-x-3">
               <svg 
                 className="w-7 h-7 text-blue-600" 
                 viewBox="0 0 24 24" 
@@ -44,7 +45,7 @@ const Navbar = () => {
               <span className="text-2xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
                 mahilo
               </span>
-            </a>
+            </Link>
           </div>
           
           <div className="hidden md:flex items-center space-x-12">

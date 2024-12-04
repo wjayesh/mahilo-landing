@@ -1,25 +1,24 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 
 const AgentVisualization = ({ className }) => {
   const canvasRef = useRef(null);
   
-  class Agent {
-    constructor(x, y) {
-      this.x = x;
-      this.y = y;
-      this.vx = (Math.random() - 0.5) * 0.5;
-      this.vy = (Math.random() - 0.5) * 0.5;
-      this.radius = 6;
-    }
+  const createAgent = useCallback((x, y) => {
+    return {
+      x,
+      y,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
+      radius: 6,
+      update(width, height) {
+        this.x += this.vx;
+        this.y += this.vy;
 
-    update(width, height) {
-      this.x += this.vx;
-      this.y += this.vy;
-
-      if (this.x < 0 || this.x > width) this.vx *= -1;
-      if (this.y < 0 || this.y > height) this.vy *= -1;
-    }
-  }
+        if (this.x < 0 || this.x > width) this.vx *= -1;
+        if (this.y < 0 || this.y > height) this.vy *= -1;
+      }
+    };
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -44,7 +43,7 @@ const AgentVisualization = ({ className }) => {
       resize();
       agents.length = 0;
       for (let i = 0; i < numAgents; i++) {
-        agents.push(new Agent(
+        agents.push(createAgent(
           Math.random() * canvas.width,
           Math.random() * canvas.height
         ));
@@ -102,7 +101,7 @@ const AgentVisualization = ({ className }) => {
       window.removeEventListener('resize', resize);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [createAgent]);
 
   return (
     <canvas
