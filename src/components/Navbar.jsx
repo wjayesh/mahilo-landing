@@ -31,7 +31,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <a href="/" className="flex items-center space-x-3">
               <svg 
-                className="w-6 h-6 text-blue-600" 
+                className="w-7 h-7 text-blue-600" 
                 viewBox="0 0 24 24" 
                 fill="none" 
                 stroke="currentColor" 
@@ -41,7 +41,9 @@ const Navbar = () => {
               >
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
               </svg>
-              <span className="text-2xl font-bold">mahilo</span>
+              <span className="text-2xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
+                mahilo
+              </span>
             </a>
           </div>
           
