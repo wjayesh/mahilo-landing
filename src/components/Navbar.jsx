@@ -62,7 +62,7 @@ const Navbar = () => {
               Use Cases
             </button>
             <a 
-              href="https://github.com/wjayesh/amhilo#readme"
+              href="https://github.com/wjayesh/mahilo#readme"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-700 hover:text-blue-600 transition-colors text-lg font-medium"
