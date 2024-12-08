@@ -5,6 +5,7 @@ import UseCaseSection from '../components/UseCaseSection';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import AgentVisualization from '../components/AgentVisualization';
+import MahiloCode from '../components/MahiloCode';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       </div>
       <FeatureGrid />
       <UseCaseSection />
+      <MahiloCode />
       <Footer />
     </div>
   );
