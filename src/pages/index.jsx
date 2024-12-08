@@ -15,9 +15,15 @@ export default function Home() {
         <AgentVisualization className="absolute inset-0" />
         <Hero className="relative z-10 text-white" />
       </div>
-      <FeatureGrid />
-      <UseCaseSection />
-      <MahiloCode />
+      <div className="w-full bg-slate-50 py-16">
+        <FeatureGrid />
+      </div>
+      <div className="w-full bg-blue-50 py-16">
+        <UseCaseSection />
+      </div>
+      <div className="w-full bg-slate-50 py-16">
+        <MahiloCode />
+      </div>
       <Footer />
     </div>
   );

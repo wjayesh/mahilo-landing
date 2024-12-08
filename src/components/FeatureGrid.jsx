@@ -178,7 +178,7 @@ const FeatureGrid = () => {
 
   return (
     <div id="features">
-      <div className="bg-gray-50 py-16">
+      <div className="py-12">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">

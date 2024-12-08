@@ -144,7 +144,7 @@ const MahiloSetupWalkthrough = () => {
   const [activeStep, setActiveStep] = useState(SETUP_STEPS[0]);
 
   return (
-    <div id="setup" className="bg-gray-50 py-16">
+    <div id="setup" className="py-12">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12">
           Build Your Multi-Agent System
