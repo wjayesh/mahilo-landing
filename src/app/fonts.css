@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'Playwrite Italia Moderna';
+  src: url('/fonts/PlaywriteItaliaModerna.woff2') format('woff2'),
+       url('/fonts/PlaywriteItaliaModerna.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+} 
