@@ -4,7 +4,12 @@ module.exports = {
         "./src/**/*.{js,jsx,ts,tsx}",
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                'space-grotesk': ['Space Grotesk', 'sans-serif'],
+                'fredoka': ['Fredoka', 'sans-serif'],
+            },
+        },
     },
     plugins: [],
 }

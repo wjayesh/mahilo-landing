@@ -42,7 +42,7 @@ const Navbar = () => {
               >
                 <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
               </svg>
-              <span className="text-2xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600">
+              <span className="text-2xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 font-space-grotesk">
                 mahilo
               </span>
             </Link>
@@ -60,6 +60,12 @@ const Navbar = () => {
               className="text-gray-700 hover:text-blue-600 transition-colors text-lg font-medium"
             >
               Use Cases
+            </button>
+            <button 
+              onClick={() => scrollToSection('setup')}
+              className="text-gray-700 hover:text-blue-600 transition-colors text-lg font-medium"
+            >
+              Build
             </button>
             <a 
               href="https://github.com/wjayesh/mahilo#readme"

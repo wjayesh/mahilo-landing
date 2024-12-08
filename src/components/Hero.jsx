@@ -1,11 +1,17 @@
 import React from 'react';
+import { Fredoka } from 'next/font/google'
+
+const fredoka = Fredoka({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+})
 
 const Hero = ({ className }) => {
   return (
     <div className={`min-h-[90vh] flex items-center justify-center pt-20 md:pt-32 ${className}`}>
       <div className="container mx-auto px-4 md:px-6 text-center max-w-5xl">
         <h1 className="mb-6 md:mb-8">
-          <span className="text-4xl md:text-6xl font-bold leading-tight md:leading-normal bg-gradient-to-r from-blue-200 to-blue-100 bg-clip-text text-transparent">
+          <span className={`${fredoka.className} text-4xl md:text-6xl font-bold leading-tight md:leading-normal bg-gradient-to-r from-blue-200 to-blue-100 bg-clip-text text-transparent`}>
             Multi-Agent AI Made Simple
           </span>
         </h1>
