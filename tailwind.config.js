@@ -7,6 +7,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 'space-grotesk': ['Space Grotesk', 'sans-serif'],
+                'pacifico': ['Pacifico', 'cursive'],
             },
         },
     },
