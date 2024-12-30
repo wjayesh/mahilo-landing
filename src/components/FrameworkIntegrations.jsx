@@ -54,7 +54,7 @@ const FrameworkIntegrations = () => {
     },
     {
       name: 'Custom API Agents',
-      description: 'Connect any proprietary or custom-built agents through our standardized API interface.',
+      description: 'Build agents through our mahilo\'s BaseAgent interface over any API.',
       status: 'Available'
     },
     {
@@ -70,8 +70,8 @@ const FrameworkIntegrations = () => {
       comingSoon: true
     },
     {
-      name: 'Custom Frameworks',
-      description: 'More frameworks coming soon. Request your preferred framework integration!',
+      name: 'More Frameworks and Services',
+      description: 'More frameworks and propreitary services coming soon. Request your preferred integration!',
       status: 'Coming Soon',
       comingSoon: true
     }
