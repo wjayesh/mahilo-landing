@@ -8,10 +8,10 @@ const SETUP_STEPS = [
   {
     id: 'define-agents',    
     title: 'Define Agents',
-    description: 'Use the BaseAgent class or create custom agent classes',
+    description: 'Use the BaseAgent class or use an integration',
     codeLines: {
-      start: 5,
-      end: 14
+      start: 6,
+      end: 17
     },
     icon: <Code className="text-indigo-500" />
   },
@@ -20,8 +20,8 @@ const SETUP_STEPS = [
     title: 'Create Agent Manager',
     description: 'Add agents to the AgentManager. Think of it as a team of agents',
     codeLines: {
-      start: 16,
-      end: 19
+      start: 19,
+      end: 22
     },
     icon: <Network className="text-green-500" />
   },
@@ -30,8 +30,8 @@ const SETUP_STEPS = [
     title: 'Start WebSocket Server',
     description: 'Create and run the AgentWebSocketServer',
     codeLines: {
-      start: 21,
-      end: 24
+      start: 24,
+      end: 27
     },
     icon: <Server className="text-blue-500" />
   }
@@ -39,24 +39,27 @@ const SETUP_STEPS = [
 
 const FULL_CODE = `
 from mahilo.agent import BaseAgent
+from mahilo.integrations.langgraph.agent import LangGraphAgent
 from mahilo.agent_manager import AgentManager
 from mahilo.server import ServerManager
 
-class BuyerAgent(BaseAgent):
-    def __init__(self, name, preferences):
-        super().__init__(
-            name=name,
-            description=PROMPT + preferences
-        )
-    ...
+sales_agent = BaseAgent(
+    type="sales_agent",
+    description=sales_agent_prompt,
+    tools=sales_tools,
+)
 
-buyer_agent = BuyerAgent(name="BuyerAgentJayesh", preferences="I'm looking for a house in Koramangala")
-seller_agent = BaseAgent(name="SellerAgent", description=SELLER_AGENT_PROMPT)
+marketing_agent = LangGraphAgent(
+    langgraph_agent=graph_builder,
+    name="MarketingAgent",
+    description=marketing_agent_prompt,
+    can_contact=[],
+)
 
 # Create Agent Manager
 manager = AgentManager()
-manager.register_agent(seller_agent)
-manager.register_agent(buyer_agent)
+manager.register_agent(sales_agent)
+manager.register_agent(marketing_agent)
 
 # initialize the server manager
 server = ServerManager(manager)
@@ -65,13 +68,13 @@ server.run()
 `.trim();
 
 const TERMINAL_SEQUENCE = [
-  { type: 'command', text: '$ python client.py --agent-name buyer_agent' },
-  { type: 'response', text: 'Connecting to ws://localhost:8000/ws/buyer_agent...' },
+  { type: 'command', text: '$ python client.py --agent-name sales_agent' },
+  { type: 'response', text: 'Connecting to ws://localhost:8000/ws/sales_agent...' },
   { type: 'response', text: 'Connected successfully!' },
-  { type: 'message', text: 'You: Hello, can you show me some houses?' },
-  { type: 'message', text: "buyer_agent: I'll scan the market for you!" },
-  { type: 'message', text: 'You: What price range are you looking at?' },
-  { type: 'message', text: 'buyer_agent: Based on preferences, searching for properties between 1-1.5Cr in Koramangala' }
+  { type: 'message', text: 'You: Hi, can you help analyze our sales performance?' },
+  { type: 'message', text: "sales_agent: I'll analyze our sales data and provide insights." },
+  { type: 'message', text: 'You: What were our top performing channels?' },
+  { type: 'message', text: 'sales_agent: Based on Q1 data, our top channels were: 1) Direct Sales (45%), 2) Partner Referrals (30%), and 3) Online Marketing (25%). Would you like me to coordinate with the marketing team for detailed campaign analysis?' }
 ];
 
 const TerminalSimulation = () => {
