@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Navbar = () => {
   const [starCount, setStarCount] = useState(null);
+  const router = useRouter();
 
   useEffect(() => {
     fetch('https://api.github.com/repos/wjayesh/mahilo')
@@ -12,16 +14,32 @@ const Navbar = () => {
   }, []);
 
   const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const navbarHeight = 60; // Approximate navbar height
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
+    if (router.pathname !== '/') {
+      router.push('/#' + id).then(() => {
+        setTimeout(() => {
+          const element = document.getElementById(id);
+          if (element) {
+            const navbarHeight = 80;
+            const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+            window.scrollTo({
+              top: elementPosition - navbarHeight,
+              behavior: "smooth"
+            });
+          }
+        }, 100);
       });
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        const navbarHeight = 80;
+        const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - navbarHeight;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth"
+        });
+      }
     }
   };
 
@@ -55,6 +73,14 @@ const Navbar = () => {
             >
               Features
             </button>
+            <Link 
+              href="/integrations"
+              className={`text-gray-700 hover:text-blue-600 transition-colors text-lg font-medium ${
+                router.pathname === '/integrations' ? 'text-blue-600' : ''
+              }`}
+            >
+              Integrations
+            </Link>
             <button 
               onClick={() => scrollToSection('use-cases')}
               className="text-gray-700 hover:text-blue-600 transition-colors text-lg font-medium"
