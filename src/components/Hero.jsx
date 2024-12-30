@@ -14,12 +14,12 @@ const Hero = ({ className }) => {
       <div className="container mx-auto px-4 md:px-6 text-center max-w-5xl">
         <h1 className="mb-6 md:mb-8">
           <span className={`${pangolin.className} text-4xl md:text-6xl leading-tight md:leading-normal bg-gradient-to-r from-blue-100 to-blue-50 bg-clip-text text-transparent font-extrabold`}>
-            Multi-Agent AI Made Simple
+            A Control Plane For Your AI Agents
           </span>
         </h1>
         <div className="space-y-4 md:space-y-6 mb-8 md:mb-12">
           <p className="text-2xl md:text-4xl font-light text-blue-100 leading-tight md:leading-normal max-w-4xl mx-auto px-2">
-            Create systems where AI agents can intelligently collaborate while keeping humans in control
+            The universal platform for integrating AI agents from any framework with real-time communication and human oversight
           </p>
         </div>
         <div className="flex flex-col md:flex-row gap-4 md:gap-6 justify-center items-center">

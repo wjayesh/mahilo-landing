@@ -9,7 +9,8 @@ import {
   Code as CodeIcon,
   User,
   User2,
-  AudioLines
+  AudioLines,
+  UsersIcon
 } from 'lucide-react';
 
 // Predefined icon map for easy reference
@@ -22,7 +23,8 @@ const ICONS = {
   User: User,
   User2: User2,
   Code: CodeIcon,
-  AudioLines: AudioLines
+  AudioLines: AudioLines,
+  Users: UsersIcon
 };
 
 const FeatureCard = ({ 
@@ -110,37 +112,26 @@ const FeatureCard = ({
 const FeatureGrid = () => {
   const features = [
     {
-      title: 'True Multi-Player AI',
-      description: 'Enable simultaneous interactions between multiple users and AI agents in a shared intelligent space.',
+      title: 'Universal Agent Integration',
+      description: 'Connect AI agents built in any framework - LangGraph, Pydantic AI, and more.',
       icon: 'Network',
       color: 'purple',
       details: [
-        'Multiple users interact with AI agents simultaneously',
-        'Sophisticated shared context management',
-        'Configurable communication patterns between agents'
+        'Seamless integration with popular agent frameworks',
+        'Connect proprietary agents via API',
+        'Framework-agnostic communication protocol'
       ]
     },
     {
-        title: 'Human-Centric Design',
-        description: 'Keep humans in control while AI agents handle complex interactions seamlessly.',
-        icon: 'User2',
-        color: 'teal',
-        details: [
-          'Perfect balance of automation and oversight',
-          'Humans are only contacted when needed',
-          'Humans can choose todictate AI decisions'
-        ]
-    },
-    {
-        title: 'Voice-Enabled Intelligence',
-        description: 'Natural voice interactions powered by OpenAI\'s cutting-edge Realtime API.',
-        icon: 'AudioLines',
-        color: 'sky', 
-        details: [
-          'Cutting-edge voice interaction capabilities',
-          'Natural conversations with AI agents',
-          'Enhanced accessibility through voice commands'
-        ]
+      title: 'Real-Time Communication',
+      description: 'Instant voice and text chat capabilities for any integrated agent.',
+      icon: 'AudioLines',
+      color: 'sky',
+      details: [
+        'Voice and text chat out of the box',
+        'Real-time agent-to-agent communication',
+        'Seamless human-agent interactions'
+      ]
     },
     {
       title: 'Intelligent Collaboration',
@@ -149,29 +140,52 @@ const FeatureGrid = () => {
       color: 'lime',
       details: [
         'Smart context sharing between agents',
-        'Real-time information querying across users',
-        'Context windowing to prevent overload'
+        'Cross-framework information exchange',
+        'Autonomous agent-to-agent queries'
       ]
     },
     {
-        title: 'Flexible Integration',
-        description: 'Adapt and extend the framework for any collaborative AI use case.',
-        icon: 'Code',
-        color: 'indigo',
-        details: [
-          'Simple installation process',
-          'Extensive documentation and templates',
-          'Support for custom agent types'
-        ]
-    },
-    {
-      title: 'Advanced Agent Controls',
-      description: 'Built with advanced agent communication patterns in mind.',
+      title: 'Organization-Wide Policies',
+      description: 'Enforce consistent behavior and security across all integrated agents.',
       icon: 'Shield',
       color: 'orange',
       details: [
-        'Session management for persistence',
-        'Flexible communication patterns like peer-to-peer and hierarchical',
+        'Centralized policy management',
+        'Consistent security controls',
+        'Behavioral guidelines across agents'
+      ]
+    },
+    {
+      title: 'Human-Centric Design',
+      description: 'Keep humans in control while AI agents handle complex interactions.',
+      icon: 'User2',
+      color: 'teal',
+      details: [
+        'Perfect balance of automation and oversight',
+          'Humans are only contacted when needed',
+          'Humans can choose to dictate AI decisions'
+      ]
+    },
+    {
+      title: 'Multi-Agent Architectures',
+      description: 'Build sophisticated agent systems with flexible communication patterns.',
+      icon: 'Cpu',
+      color: 'indigo',
+      details: [
+        'Hierarchical and peer-to-peer patterns',
+        'Complex workflow orchestration',
+        'Scalable agent architectures'
+      ]
+    },
+    {
+      title: 'True Multi-Player AI',
+      description: 'Enable simultaneous interactions between multiple users and AI agents in a shared intelligent space.',
+      icon: 'Users',
+      color: 'pink', 
+      details: [
+        'Multiple users interact with AI agents simultaneously',
+        'Sophisticated shared context management',
+        'Configurable communication patterns between agents'
       ]
     },
   ];
@@ -182,10 +196,10 @@ const FeatureGrid = () => {
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
-              A Multi-Agent Human-in-the-Loop Framework
+              The Universal Agent Integration Platform
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Built on the principles of extensibility, intelligent context sharing, and human oversight, mahilo lets you build sophisticated multi-agent AI apps with ease.
+              Connect AI agents from any framework, enable real-time communication, and maintain human oversight - all with mahilo's powerful integration platform.
             </p>
           </div>
           

@@ -6,6 +6,7 @@ import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import AgentVisualization from '../components/AgentVisualization';
 import MahiloCode from '../components/MahiloCode';
+import FrameworkIntegrations from '../components/FrameworkIntegrations';
 
 export default function Home() {
   return (
@@ -17,6 +18,9 @@ export default function Home() {
       </div>
       <div className="w-full bg-slate-50 py-16">
         <FeatureGrid />
+      </div>
+      <div className="w-full bg-white py-16">
+        <FrameworkIntegrations />
       </div>
       <div className="w-full bg-blue-50 py-16">
         <UseCaseSection />
