@@ -1,4 +1,4 @@
-import './styles/fonts.css'
+import './fonts.css'
 
 export default function RootLayout({ children }) {
   return (
